@@ -20,4 +20,18 @@
     </div>
      </div>
     {{/each}}
+        <article class="flipcard addNew">
+        <h2>Add New Restaurant</h2>
+        <form action="/restaurants" method="POST">
+            <div>
+                <label>Restaurant name</label>
+                <input name="name" />
+            </div>
+            <div>
+                <label>Restaurant image</label>
+                <input name="image" />
+            </div>
+            <button>Add Restaurant</button>
+        </form>
+    </article>
 </section>

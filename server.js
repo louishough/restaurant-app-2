@@ -12,8 +12,16 @@ const handlebars = expressHandlebars({
 app.use(express.static('public'))
 app.engine('handlebars', handlebars)
 app.set('view engine', 'handlebars')
+app.use(express.urlencoded({ extended: true }))
+app.use(express.json())
 
-app.get('/', async (request, response) => {
+app.post('/restaurants', async (req, res) => {
+    console.log(req.body)
+    await Restaurant.create(req.body)
+    res.redirect('/restaurants')
+})
+
+app.get(['/', '/restaurants'], async (request, response) => {
     const restaurants = await Restaurant.findAll({
         include: 'menus'
     })
@@ -26,11 +34,6 @@ app.get('/about', (request, response) => {
 
 app.get('/faqs', (request, response) => {
     response.render('faqs', {date: new Date()})
-})
-
-app.get('/restaurants', async (request, response) => {
-    const restaurants = await Restaurant.findAll()
-    response.render('restaurants', {restaurants})
 })
 
 app.get('/restaurants/:id', async (req, res) => {
