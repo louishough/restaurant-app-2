@@ -1,0 +1,17 @@
+<h1>{{restaurant.name}}</h1>
+<nav><a href="/"><button id="returnhome">Return to Restaurants</button></a></nav>
+<section>
+    {{#each menus}}
+        <article class="onemenu">
+            <h2>{{this.title}}</h2>
+            <dl>
+                {{#each this.items}}
+                    <div>
+                        <dt>{{this.name}}</dt>
+                        <dd>£{{this.price}}</dd>
+                    </div>
+                {{/each}}
+            </dl>
+        </article>
+    {{/each}}
+</section>

@@ -1,0 +1,23 @@
+<h1>Local Restaurants</h1>
+<section>
+    
+    {{#each restaurants}}
+    <div class="flipcard">
+        <div class="inner">
+    <article class="front" style ="background-image: url({{this.image}});">
+        <h2 class="restTitle">{{this.name}}</h2>
+    </article>
+        <a href="/restaurants/{{this.id}}">
+        <article class="back"> 
+            <ul class="listMenus">
+                <h2>{{this.name}} &#8594; Available Menus</h2>
+                {{#each menus}}
+                <li>{{this.title}}</li>
+                {{/each}}
+            </ul>
+        </article>
+        </a>
+    </div>
+     </div>
+    {{/each}}
+</section>
