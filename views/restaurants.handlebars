@@ -10,7 +10,7 @@
         <a href="/restaurants/{{this.id}}">
         <article class="back"> 
             <ul class="listMenus">
-                <h2>{{this.name}} &#8594; Available Menus</h2>
+                <h2>{{this.name}} &#8594; Menus</h2>
                 {{#each menus}}
                 <li>{{this.title}}</li>
                 {{/each}}
@@ -21,17 +21,20 @@
      </div>
     {{/each}}
         <article class="flipcard addNew">
-        <h2>Add New Restaurant</h2>
+        <h2 class="addNewHeading">Add New Restaurant</h2>
         <form action="/restaurants" method="POST">
-            <div>
-                <label>Restaurant name</label>
-                <input name="name" />
-            </div>
-            <div>
-                <label>Restaurant image</label>
-                <input name="image" />
-            </div>
-            <button>Add Restaurant</button>
+            <ul class="form-style">
+            <li>
+                <label>Restaurant Name: <span class="required">* </span></label>
+                <input type="text" name="name" class="field-long" placeholder="Restaurant Name" required/>
+            <li>
+            <label>Image URL: <span class="required">* </span></label>
+            <input type="url" name="image" class="field-long" placeholder="www.example.com/image.jpeg" required/>
+            </li>
+            <li>
+                <input type="submit" value="Submit" />
+            </li>
+            </ul>
         </form>
     </article>
 </section>

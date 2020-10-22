@@ -88,9 +88,88 @@ h1 {
 }
 .addNew {
 
-    border: solid 1px rgba(208, 83, 83, 0.6);
+    border: ridge 2.5px rgb(208, 83, 83);
     border-radius: 5.5px;
+    background-color: #FFCF70;
 }
+
+.addNewHeading {
+    color: rgb(208, 83, 83);
+    text-align: center;
+    margin-top: 2rem;
+}
+
+.form-style {
+	margin:10px auto;
+	max-width: 400px;
+	padding: 20px 12px 10px 20px;
+	font: 13px "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+}
+
+.form-style li {
+	padding: 0;
+	display: block;
+	list-style: none;
+	margin: 10px 0 0 0;
+}
+
+.form-style label{
+	margin:0 0 3px 0;
+	padding:0px;
+	display:block;
+    color: rgb(208, 83, 83);
+    text-align: center;
+    font-size: 1rem;
+    font-weight: bold;
+}
+
+.form-style input[type=text], 
+.form-style input[type=url],
+textarea, 
+select{
+	box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	border:1px solid #BEBEBE;
+	padding: 7px;
+	margin:0px;
+	-webkit-transition: all 0.30s ease-in-out;
+	-moz-transition: all 0.30s ease-in-out;
+	-ms-transition: all 0.30s ease-in-out;
+	-o-transition: all 0.30s ease-in-out;
+	outline: none;	
+}
+
+.form-style input[type=text]:focus, 
+.form-style input[type=url]:focus,
+.form-style select:focus{
+	-moz-box-shadow: 0 0 8px rgb(208, 83, 83);
+	-webkit-box-shadow: 0 0 8px rgb(208, 83, 83);
+	box-shadow: 0 0 8px rgb(208, 83, 83);
+	border: 1px solid rgb(208, 83, 83);
+}
+
+.form-style .field-long{
+	width: 100%;
+}
+.form-style input[type=submit], .form-style input[type=button]{
+	background: rgb(208, 83, 83);
+	padding: 8px 15px 8px 15px;
+	border: none;
+    color: #fff;
+    text-align: center;
+}
+.form-style input[type=submit]:hover, .form-style input[type=button]:hover{
+	background: rgb(208, 83, 83);
+	box-shadow:none;
+	-moz-box-shadow:none;
+	-webkit-box-shadow:none;
+}
+
+.form-style .required{
+	color:red;
+}
+
 .listMenus {
     margin: 0;
     margin-top: 2rem;
