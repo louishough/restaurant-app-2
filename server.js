@@ -28,14 +28,6 @@ app.get(['/', '/restaurants'], async (request, response) => {
     response.render('restaurants', {restaurants})
 })
 
-app.get('/about', (request, response) => {
-    response.render('about', {date: new Date(), name: "Louis"})
-})
-
-app.get('/faqs', (request, response) => {
-    response.render('faqs', {date: new Date()})
-})
-
 app.get('/restaurants/:id', async (req, res) => {
     const restaurant = await Restaurant.findByPk(req.params.id)
     const menus = await restaurant.getMenus({
@@ -43,6 +35,20 @@ app.get('/restaurants/:id', async (req, res) => {
         nest: true
     })
     res.render('restaurant', {restaurant, menus})
+})
+
+app.get('/restaurants/:id/delete', (req, res) => {
+    Restaurant.findByPk(req.params.id)
+        .then(restaurant => {
+            restaurant.destroy()
+            res.redirect('/')
+        })
+})
+
+app.post('/restaurants/:id/edit', async (req, res) => {
+    const restaurant = await Restaurant.findByPk(req.params.id)
+    await restaurant.update(req.body)
+    res.redirect(`/restaurants/${restaurant.id}`)
 })
 
 app.listen(3000, async () => {

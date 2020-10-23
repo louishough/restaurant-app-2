@@ -1,17 +1,46 @@
-<h1>{{restaurant.name}}</h1>
+<nav><h1>{{restaurant.name}}</h1><a class="delres" href="/restaurants/{{restaurant.id}}/delete">🗑</a>
+</nav>
 <nav><a href="/"><button id="returnhome">Return to Restaurants</button></a></nav>
+<button class="open-form-button" onclick="openForm()">Edit this restaurant</button>
+<div class="edit-form-popup" id="edit-form">
+<form action="/restaurants/{{restaurant.id}}/edit" method="POST" class="edit-form-container">
+    <div>
+        <label>Name: </label>
+        <input type="text" name="name" value="{{restaurant.name}}" />
+    </div>
+    <div>
+        <label>Image: </label>
+        <input type="url" name="image" value="{{restaurant.image}}"/>
+    </div>
+    <button type="submit" class="btn">Update</button>
+    <button type="reset" class="btn cancel" onclick="closeForm()">Close</button>
+</form>
+</div>
 <section>
     {{#each menus}}
         <article class="onemenu">
             <h2>{{this.title}}</h2>
-            <dl>
+            <dl class="menuContainer">
                 {{#each this.items}}
                     <div>
                         <dt>{{this.name}}</dt>
                         <dd>£{{this.price}}</dd>
                     </div>
                 {{/each}}
+                
             </dl>
         </article>
     {{/each}}
 </section>
+
+
+
+<script>
+    function openForm() {
+  document.getElementById("edit-form").style.display = "block";
+}
+
+function closeForm() {
+  document.getElementById("edit-form").style.display = "none";
+}
+</script>
